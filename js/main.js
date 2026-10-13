@@ -122,7 +122,6 @@ bgm.addEventListener('timeupdate', () => $('#d-bar').style.width = (bgm.currentT
 ['play', 'pause'].forEach(ev => bgm.addEventListener(ev, () => {
   document.body.classList.toggle('playing', !bgm.paused);
   $('#toggle').textContent = bgm.paused ? 'Lancer la musique' : 'Mettre en pause';
-  $('#deck .deck-hint').textContent = bgm.paused ? 'Appuie pour écouter' : 'Appuie pour mettre en pause';
 }));
 $('#toggle').addEventListener('click', toggle);
 $('#deck').addEventListener('click', toggle);
