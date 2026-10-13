@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pour toi mon Bilal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="aurora"><i></i><i></i></div>
+<canvas id="sky"></canvas>
+<canvas id="effects" aria-hidden="true"></canvas>
+<audio id="bgm" preload="auto" autoplay></audio>
+
+<!-- 1. Code secret -->
+<section id="gate" class="screen active">
+  <div class="gate-box" id="gate-box">
+    <p class="small">Un cadeau t'attend</p>
+    <h1 id="gate-title"></h1>
+    <div class="dots" id="dots" aria-label="Code saisi"></div>
+    <p id="hint" class="small"></p>
+    <div class="pad" id="pad"></div>
+    <p id="err" class="err" role="alert"></p>
+  </div>
+</section>
+
+<!-- 2. Enveloppe -->
+<section id="mail" class="screen">
+  <p class="mail-note">Une petite surprise t'attend...</p>
+  <div class="mail-display">
+    <div class="flower-spray flower-spray-left" aria-hidden="true">
+      <i>✿</i><i>❀</i><i>✽</i>
+    </div>
+    <button id="envelope" class="envelope" aria-label="Ouvrir la lettre">
+      <span class="letter-preview" aria-hidden="true">Pour toi<br>avec amour</span>
+      <span class="flap"></span><span class="pocket"></span>
+      <span class="seal" aria-hidden="true">♥</span>
+    </button>
+    <div class="flower-spray flower-spray-right" aria-hidden="true">
+      <i>❀</i><i>✿</i><i>✽</i>
+    </div>
+  </div>
+  <p class="envelope-hint">Appuie pour découvrir ta lettre</p>
+</section>
+
+<div id="letter" class="overlay" hidden>
+  <article class="paper">
+    <p class="paper-kicker">Une pensée rien que pour toi</p>
+    <h2 id="l-title"></h2>
+    <div id="l-body"></div>
+    <p id="l-sign" class="sign"></p>
+    <button id="l-close" class="btn">Continuer</button>
+  </article>
+</div>
+
+<!-- 3. Page principale -->
+<main id="main" class="screen">
+  <section class="page hero active" id="home">
+    <div class="hero-copy">
+      <p class="eyebrow">Un petit monde rien qu'à nous</p>
+      <h2 id="hero-title"></h2>
+      <p class="hero-note">Chaque souvenir nous rapproche, peu importe la distance.</p>
+      <div class="clock" id="clock"></div>
+      <p class="now" id="track"></p>
+      <button class="btn" id="toggle">Lancer la musique</button>
+      <p class="audio-status" id="audio-status" aria-live="polite"></p>
+    </div>
+    <button class="deck" id="deck" type="button" aria-label="Lecture ou pause de la musique">
+      <span class="disc"><span class="label"><span>♥</span></span></span>
+      <span class="arm"></span>
+      <span class="deck-hint">Appuie pour écouter</span>
+    </button>
+    <div class="home-links" aria-label="Explorer le cadeau">
+      <button class="home-card" type="button" data-page="story"><span class="card-icon">✧</span><b>Notre histoire</b><small>Les instants qui nous ont rapprochés</small><span class="card-arrow">→</span></button>
+      <button class="home-card" type="button" data-page="photos"><span class="card-icon">♡</span><b>Nos souvenirs</b><small>Quelques moments rien qu'à nous</small><span class="card-arrow">→</span></button>
+      <button class="home-card" type="button" data-page="library"><span class="card-icon">♫</span><b>Notre musique</b><small>La bande-son de notre histoire</small><span class="card-arrow">→</span></button>
+    </div>
+  </section>
+
+  <section class="page block" id="story" hidden>
+    <h3>Notre histoire</h3>
+    <p class="page-intro">Les petits instants qui ont écrit notre histoire.</p>
+    <div class="tl" id="timeline"></div>
+    <div class="page-actions"><button class="btn ghost" type="button" data-page="home">← Accueil</button><button class="btn page-next" type="button" data-page="photos">Voir nos souvenirs <span>→</span></button></div>
+  </section>
+
+  <section class="page block" id="photos" hidden>
+    <h3>Nos souvenirs</h3>
+    <p class="page-intro">Touche une photo pour la voir en grand.</p>
+    <div class="gallery" id="gallery"></div>
+    <div class="page-actions"><button class="btn ghost" type="button" data-page="story">← Notre histoire</button><button class="btn page-next" type="button" data-page="library">Écouter nos chansons <span>→</span></button></div>
+  </section>
+
+  <section class="page block" id="library" hidden>
+    <h3>Notre bibliothèque</h3>
+    <p class="page-intro">Choisis une chanson, le tourne-disque s'occupe du reste.</p>
+    <div class="tracks" id="track-list"></div>
+    <button class="btn ghost page-next" type="button" data-page="photos">← Revoir nos souvenirs</button>
+    <button class="btn ghost page-next" id="reread" type="button">Relire ma lettre <span>♥</span></button>
+  </section>
+</main>
+
+<!-- Mini lecteur discret -->
+<aside id="dock" class="dock" hidden>
+  <button id="d-disc" class="mini-disc" aria-label="Lecture / pause"></button>
+  <div class="d-info"><b id="d-title"></b><span id="d-artist"></span><i class="bar"><u id="d-bar"></u></i></div>
+  <button id="d-prev" class="d-btn" aria-label="Précédent">‹</button>
+  <button id="d-next" class="d-btn" aria-label="Suivant">›</button>
+</aside>
+
+<script src="js/config.js"></script>
+<script src="js/stars.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
