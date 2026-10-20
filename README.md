@@ -1,8 +1,8 @@
 # Cadeau digital
 
 1. Ouvre `js/config.js` : code secret (chiffres), lettre, frise, légendes, date, titres des musiques.
-2. Mets tes fichiers mp3 dans `assets/music/` (`son1.mp3`, `son2.mp3`...) et tes photos dans `assets/photos/` : les noms doivent être identiques à ceux de `config.js`.
-3. Teste avec « Live Server » de VSCode, ou en ouvrant `index.html`. Les cartes de l'accueil et les boutons en bas des pages permettent de parcourir le cadeau sans barre de navigation ; touche une photo pour l'agrandir, puis touche-la une deuxième fois pour la réduire.
+2. Mets tes fichiers mp3 dans `assets/music/` (`son1.mp3`, `son2.mp3`...), tes trois photos dans `assets/photos/` et tes trois vidéos MP4 dans `assets/videos/`. Les noms doivent être identiques à ceux de `js/config.js` (`photo1.jpg` à `photo3.jpg` et `video1.mp4` à `video3.mp4`).
+3. Teste avec « Live Server » de VSCode, ou en ouvrant `index.html`. Les cartes de l'accueil et les boutons en bas des pages permettent de parcourir le cadeau sans barre de navigation ; touche une photo pour l'agrandir, puis touche-la une deuxième fois pour la réduire. Les vidéos se lisent depuis leur lecteur intégré.
 4. Pour envoyer le projet sur GitHub depuis le terminal intégré de VS Code, crée d’abord un dépôt vide sur GitHub, puis lance ces commandes à la racine du dossier (remplace l’adresse par celle de ton dépôt) :
 
    ```powershell

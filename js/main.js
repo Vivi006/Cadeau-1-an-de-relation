@@ -175,7 +175,7 @@ C.histoire.forEach(h => {
   $('#timeline').appendChild(a);
 });
 
-/* ---------- Photos ---------- */
+/* ---------- Galerie : photos et vidéos ---------- */
 C.photos.forEach(ph => {
   const f = document.createElement('figure');
   f.className = 'polaroid';
@@ -205,7 +205,20 @@ C.photos.forEach(ph => {
   });
   $('#gallery').appendChild(f);
 });
-if (!C.photos.length) {
+
+C.videos.forEach(vid => {
+  const f = document.createElement('figure');
+  f.className = 'polaroid video-card';
+  f.innerHTML = '<div class="pic"><video controls preload="metadata" playsinline></video></div><figcaption></figcaption>';
+  const player = f.querySelector('video');
+  player.src = vid.src;
+  player.setAttribute('aria-label', vid.legende);
+  player.addEventListener('error', () => f.classList.add('missing'));
+  f.querySelector('figcaption').textContent = vid.legende;
+  $('#gallery').appendChild(f);
+});
+
+if (!C.photos.length && !C.videos.length) {
   $('#photos').hidden = true;
   document.querySelector('.home-card[data-page="photos"]').hidden = true;
   document.querySelector('#story [data-page="photos"]').hidden = true;

@@ -154,14 +154,19 @@ background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.16),transparent 3
 .polaroid:nth-child(even){rotate:2.2deg;margin-top:1rem}
 .polaroid:nth-child(3n){rotate:-.8deg}
 .polaroid:hover{rotate:0deg;transform:scale(1.04)}
+.video-card{cursor:default}
 .polaroid.is-expanded{grid-column:1/-1;rotate:0deg;transform:none;cursor:zoom-out;z-index:1}
 .polaroid.is-expanded:hover{transform:none}
-.pic{aspect-ratio:4/5;overflow:hidden;background:linear-gradient(135deg,var(--rose),var(--apricot));display:grid;place-items:center}
+.pic{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(135deg,var(--rose),var(--apricot));display:grid;place-items:center}
 .pic img{width:100%;height:100%;object-fit:cover;display:block}
+.pic video{width:100%;height:100%;object-fit:cover;display:block;background:#21132c}
 .polaroid.is-expanded .pic{aspect-ratio:auto}
 .polaroid.is-expanded .pic img{height:auto;max-height:70vh;object-fit:contain}
+.polaroid.is-expanded .pic video{height:auto;max-height:70vh;object-fit:contain}
 .missing .pic img{display:none}
+.video-card.missing .pic video{display:none}
 .missing .pic::before{content:"♥";font-size:3rem;color:var(--paper)}
+.video-card.missing .pic::after{content:"Vidéo indisponible";position:absolute;inset:0;display:grid;place-items:center;color:var(--paper);font-size:.9rem}
 .polaroid figcaption{font:500 1.35rem var(--hand);text-align:center;padding:.5rem 0 .7rem}
 
 /* Bibliothèque */

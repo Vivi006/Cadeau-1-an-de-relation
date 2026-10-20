@@ -34,13 +34,15 @@ const CONFIG = {
     { date: "Bientôt", titre: "Enfin ensemble", texte: "Plus de distance, plus d'écran." }
   ],
 
-  // Photos : dépose-les dans assets/photos/ puis adapte les noms
+  // Galerie : dépose les fichiers dans assets/photos/ et assets/videos/
   photos: [
-    { src: "assets/photos/photo1.jpg", legende: "Notre première photo" },
+    { src: "assets/photos/photo1.jpg", legende:"On était mignons ici" },
     { src: "assets/photos/photo2.jpg", legende: "Ce jour-là" },
-    { src: "assets/photos/photo3.jpg", legende: "Ton sourire" },
-    { src: "assets/photos/photo4.jpg", legende: "Notre appel préféré" },
-    { src: "assets/photos/photo5.jpg", legende: "Bientôt ensemble" },
-    { src: "assets/photos/photo6.jpg", legende: "Toi et moi" }
+    { src: "assets/photos/photo3.jpg", legende: "Deux tchaipos" }
+  ],
+  videos: [
+    { src: "assets/videos/video1.MP4", legende: "Notre souvenir en vidéo" },
+    { src: "assets/videos/video2.mp4", legende: "Un moment ensemble" },
+    { src: "assets/videos/video3.mp4", legende: "Encore un beau souvenir" }
   ]
 };
