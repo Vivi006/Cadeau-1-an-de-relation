@@ -209,7 +209,7 @@ C.photos.forEach(ph => {
 C.videos.forEach(vid => {
   const f = document.createElement('figure');
   f.className = 'polaroid video-card';
-  f.innerHTML = '<div class="pic"><video controls preload="metadata" playsinline></video></div><figcaption></figcaption>';
+  f.innerHTML = '<div class="pic"><video controls muted preload="metadata" playsinline></video></div><figcaption></figcaption>';
   const player = f.querySelector('video');
   player.src = vid.src;
   player.setAttribute('aria-label', vid.legende);
