@@ -36,9 +36,9 @@ const CONFIG = {
 
   // Galerie : dépose les fichiers dans assets/photos/ et assets/videos/
   photos: [
-    { src: "assets/photos/photo1.jpg", legende:"On était mignons ici" },
-    { src: "assets/photos/photo2.jpg", legende: "Ce jour-là" },
-    { src: "assets/photos/photo3.jpg", legende: "Deux tchaipos" }
+    { src: "assets/photos/photo1.JPG", legende:"On était mignons ici" },
+    { src: "assets/photos/photo2.JPG", legende: "Ce jour-là" },
+    { src: "assets/photos/photo3.JPG", legende: "Deux tchaipos" }
   ],
   videos: [
     { src: "assets/videos/video1.MP4", legende: "Notre souvenir en vidéo" },
